@@ -1,0 +1,61 @@
+version: '3.4'
+services:
+    nginx:
+        build:
+            context: ../../
+            dockerfile: ./automation/.docker/nginx/Dockerfile
+        volumes:
+            - '${PROJECT_PATH}:/var/www/html:ro'
+        restart: 'on-failure:5'
+        networks:
+            - internal
+        ports:
+            - '${NGINX_PORT}:80'
+        depends_on:
+            - php
+    php:
+        build:
+            context: ../../
+            dockerfile: ./automation/.docker/php/Dockerfile
+            target: dev
+            args:
+                COMPOSER_VERSION: 2.1.6
+        volumes:
+            - '${PROJECT_PATH}:/var/www/html'
+        expose:
+            - 9000
+        networks:
+            - internal
+        restart: 'on-failure:5'
+    mysql:
+        image: 'mysql:8.0'
+        command:
+            - '--default-authentication-plugin=mysql_native_password'
+            - '--lower_case_table_names=1'
+        volumes:
+            - 'mysql-data:/var/lib/mysql:delegated'
+        ports:
+            - '${MYSQL_LOCAL_PORT}:3306'
+        environment:
+            - 'MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}'
+            - 'MYSQL_DATABASE=${MYSQL_DATABASE}'
+        networks:
+            - internal
+        restart: 'on-failure:5'
+    phpmyadmin:
+        image: phpmyadmin
+        restart: 'on-failure:5'
+        networks:
+            - internal
+        ports:
+            - '${PMA_LOCAL_PORT}:80'
+        environment:
+            - 'PMA_HOST=mysql'
+            - 'PMA_USER=root'
+            - 'PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}'
+volumes:
+    mysql-data:
+        driver: local
+networks:
+    internal:
+        external: false
