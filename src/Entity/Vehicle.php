@@ -18,25 +18,22 @@ class Vehicle
 
     #[ORM\ManyToOne(targetEntity: Brand::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?int $brand = null;
+    private ?Brand $brand = null;
 
 
     #[ORM\Column(length: 255)]
     private ?string $plateNumber = null;
 
-    #[ORM\ManyToOne(targetEntity: FosUser::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?int $user = null;
 
-    #[ORM\ManyToOne(targetEntity: Vehicle::class, )]
+    #[ORM\ManyToOne(targetEntity: Owner::class, )]
     #[ORM\JoinColumn(nullable: false)]
-    private ?int $owner = null;
+    private ?Owner $owner = null;
 
-    #[ORM\JoinTable(name: 'vehicle_operation')]
-    #[ORM\JoinColumn(name: 'vehicle_id', referencedColumnName: 'id')]
-    #[ORM\InverseJoinColumn(name: 'operation_id', referencedColumnName: 'id')]
-    #[ORM\ManyToMany(targetEntity: Operation::class)]
-    private int $operation;
+//    #[ORM\JoinTable(name: 'vehicle_operation')]
+//    #[ORM\JoinColumn(name: 'vehicle_id', referencedColumnName: 'id')]
+//    #[ORM\InverseJoinColumn(name: 'operation_id', referencedColumnName: 'id')]
+//    #[ORM\ManyToMany(targetEntity: Operation::class)]
+//    private int $operation;
 
     /**
      * @return int
@@ -59,17 +56,23 @@ class Vehicle
         return $this->id;
     }
 
-    public function getBrand(): ?string
+    /**
+     * @return Brand|null
+     */
+    public function getBrand(): ?Brand
     {
         return $this->brand;
     }
 
-    public function setBrand(string $brand): self
+    /**
+     * @param Brand|null $brand
+     */
+    public function setBrand(?Brand $brand): void
     {
         $this->brand = $brand;
-
-        return $this;
     }
+
+
 
 
     public function getPlateNumber(): ?string
@@ -85,32 +88,26 @@ class Vehicle
     }
 
     /**
-     * @return string|null
+     * @return Owner|null
      */
-    public function getUser(): ?string
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param string|null $user
-     */
-    public function setUser(?string $user): void
-    {
-        $this->user = $user;
-    }
-
     public function getOwner(): ?Owner
     {
         return $this->owner;
     }
 
-    public function setOwner(?Owner $owner): self
+    /**
+     * @param Owner|null $owner
+     */
+    public function setOwner(?Owner $owner): void
     {
         $this->owner = $owner;
-
-        return $this;
     }
+
+    /**
+     * @return string|null
+     */
+
+
 
 
 }

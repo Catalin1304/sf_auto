@@ -1,6 +1,19 @@
 fos_user:
   resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+app_vehicle_delete:
+  path: /vehicles/{id}/delete
+  controller: App\Controller\VehicleController::deleteAction
+  methods: [POST]
+
+app_vehicle_list:
+  path: /vehicles
+  controller: App\Controller\VehicleController::listAction
+  methods:
+
+app_register_list:
+  path: /register
+  methods:
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index

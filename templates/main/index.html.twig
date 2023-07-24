@@ -9,12 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% if is_granted('ROLE_USER') %}
+    <h1>Hello {{ app.user.username }}! </h1>
 
-    This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ '/home/catalin/projects/sf_auto/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/catalin/projects/sf_auto/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+        <li><a href="{{ path('app_vehicle_list') }}">Lista mașini
+                {% else %}
+       <h1>Trebuie sa te inregistrezi mai intai sau sa intri in cont ! </h1>
+                {% endif %}
+
 </div>
 {% endblock %}

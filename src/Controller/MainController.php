@@ -18,18 +18,13 @@ class MainController extends AbstractController
 //        $fosUserRepository = $this->entityManager->getRepository(FosUser::class)
 //           $fosUser = $fosUserRepository->find($id);
 //       $name = $fosUser->getUsername();
+        $user = $this->getUser();
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
 //            'name' => $name
         ]);
     }
 
-    private $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
 }
 
 
