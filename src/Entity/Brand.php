@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\FosUserRepository;
+use App\Repository\BrandRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: FosUserRepository::class)]
+#[ORM\Entity(repositoryClass: BrandRepository::class)]
 class Brand
 {
     #[ORM\Id]

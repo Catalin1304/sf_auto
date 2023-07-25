@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4265887249bec777a2cd9249d74a0854",
+    "content-hash": "83bd9d2a7fbb568ca736562bbc088d05",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3147,16 +3147,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v5.4.23",
+            "version": "v5.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "ebdc48d54d82b74230a8aed6458c238ec5788e38"
+                "reference": "813b79a34ab9843b5a01a6f809f1e4a009aaea2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/ebdc48d54d82b74230a8aed6458c238ec5788e38",
-                "reference": "ebdc48d54d82b74230a8aed6458c238ec5788e38",
+                "url": "https://api.github.com/repos/symfony/form/zipball/813b79a34ab9843b5a01a6f809f1e4a009aaea2e",
+                "reference": "813b79a34ab9843b5a01a6f809f1e4a009aaea2e",
                 "shasum": ""
             },
             "require": {
@@ -3173,7 +3173,6 @@
                 "symfony/service-contracts": "^1.1|^2|^3"
             },
             "conflict": {
-                "phpunit/phpunit": "<5.4.3",
                 "symfony/console": "<4.4",
                 "symfony/dependency-injection": "<4.4",
                 "symfony/doctrine-bridge": "<5.4.21|>=6,<6.2.7",
@@ -3230,7 +3229,7 @@
             "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/form/tree/v5.4.23"
+                "source": "https://github.com/symfony/form/tree/v5.4.24"
             },
             "funding": [
                 {
@@ -3246,7 +3245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-17T15:04:56+00:00"
+            "time": "2023-05-25T13:05:00+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -6012,16 +6011,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v5.4.23",
+            "version": "v5.4.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "ca71f5562a3876a153250f638124b6b95452985f"
+                "reference": "62b6cd0a2da0553db0400c3f13899afbdeefaa77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/ca71f5562a3876a153250f638124b6b95452985f",
-                "reference": "ca71f5562a3876a153250f638124b6b95452985f",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/62b6cd0a2da0553db0400c3f13899afbdeefaa77",
+                "reference": "62b6cd0a2da0553db0400c3f13899afbdeefaa77",
                 "shasum": ""
             },
             "require": {
@@ -6038,7 +6037,6 @@
                 "doctrine/annotations": "<1.13",
                 "doctrine/cache": "<1.11",
                 "doctrine/lexer": "<1.1",
-                "phpunit/phpunit": "<5.4.3",
                 "symfony/dependency-injection": "<4.4",
                 "symfony/expression-language": "<5.1",
                 "symfony/http-kernel": "<4.4",
@@ -6105,7 +6103,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v5.4.23"
+                "source": "https://github.com/symfony/validator/tree/v5.4.25"
             },
             "funding": [
                 {
@@ -6121,7 +6119,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-19T07:52:21+00:00"
+            "time": "2023-06-21T09:57:24+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -6748,5 +6746,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

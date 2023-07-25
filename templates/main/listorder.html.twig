@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12">
+{#                <div class="pull-right" style="margin-bottom: 10px; margin-top: 20px;">#}
+{#                    <a href="{{ path('admin_genus_new') }}" class="btn btn-primary pull-right">Add <span class="fa fa-plus-circle"></span></a>#}
+{#                </div>#}
+
+                <h1>Lista comenzi</h1>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th style="padding-right: 20px;">Nr inmatriculare</th>
+                        <th style="padding-right: 20px;">Muncitor</th>
+                        <th style="padding-right: 20px;">Detalii</th>
+                    </tr>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.vehicle.plateNumber }}</td>
+                            <td>{{ order.worker.name }}</td>
+                            <td>{{ order.details }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

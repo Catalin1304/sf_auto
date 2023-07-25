@@ -29,6 +29,9 @@ class Vehicle
     #[ORM\JoinColumn(nullable: false)]
     private ?Owner $owner = null;
 
+    #[ORM\ManyToOne(inversedBy: 'plateNumber')]
+    private ?CarOrder $orders = null;
+
 //    #[ORM\JoinTable(name: 'vehicle_operation')]
 //    #[ORM\JoinColumn(name: 'vehicle_id', referencedColumnName: 'id')]
 //    #[ORM\InverseJoinColumn(name: 'operation_id', referencedColumnName: 'id')]
@@ -106,6 +109,18 @@ class Vehicle
     /**
      * @return string|null
      */
+
+    public function getOrders(): ?CarOrder
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(?CarOrder $orders): self
+    {
+        $this->orders = $orders;
+
+        return $this;
+    }
 
 
 

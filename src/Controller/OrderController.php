@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\CarOrder;
 use App\Entity\Vehicle;
 use App\Entity\Owner;
+use App\Form\OrderFormType;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
@@ -16,40 +18,40 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class VehicleController extends AbstractController
+class OrderController extends AbstractController
 {
     /**
-     * @Route("/vehicles")
+     * @Route("/orders")
      */
     public function listAction(): Response
     {
-        $vehicleRepository = $this->entityManager->getRepository(Vehicle::class);
-        $vehicles = $vehicleRepository->findAll();
-        return $this->render('main/list.html.twig', [
-            'vehicles' => $vehicles]);
+        $orderRepository = $this->entityManager->getRepository(CarOrder::class);
+        $orders = $orderRepository->findAll();
+        return $this->render('main/listorder.html.twig', [
+            'orders' => $orders]);
     }
 
     /**
-     * @Route("/show")
+     * @Route("/addorder")
      */
     public function show(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $vehicle = new Vehicle();
+        $order = new CarOrder();
 
-        $form = $this->createForm(VehicleFormType::class, $vehicle);
+        $form = $this->createForm(OrderFormType::class, $order);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager->persist($vehicle);
+            $entityManager->persist($order);
             $entityManager->flush();
 
-            return new Response('Numarul de inmatriculare' . $vehicle->getPlateNumber() . ' a fost inregistrat');
+            return new Response('Numarul de inmatriculare');
         }
 
-        return $this->render('main/show.html.twig', [
-            'vehicle_form' => $form->createView(),
+        return $this->render('main/showorder.html.twig', [
+            'order_form' => $form->createView(),
         ]);
     }
 
